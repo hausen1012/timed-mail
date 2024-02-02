@@ -1,0 +1,39 @@
+* {
+  margin: 0;
+  padding: 0;
+
+  /* 修改滚动条滑块的样式 */
+  ::-webkit-scrollbar-thumb {
+    background-color: @scrollbarThumbBackgroundColor;
+    border-radius: @scrollbarThumbRadius;
+  }
+
+  /* 修改滚动条滑块在被鼠标悬停时的样式 */
+  ::-webkit-scrollbar-thumb:hover {
+    background-color: @scrollbarThumbHover;
+  }
+
+  /* 修改滚动条的尺寸 */
+  ::-webkit-scrollbar {
+    width: @scrollbarWidth;
+  }
+}
+
+html {
+  color: @color;
+  font-size: @fontSize;
+}
+
+p {
+  margin: 0;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+  cursor: pointer;
+}
+
+ul > li {
+  list-style: none;
+}
