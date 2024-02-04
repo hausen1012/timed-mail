@@ -11,7 +11,8 @@ export const routes:RouteRecordRaw[] = [
       label: '首页',
       icon: () => h(AppstoreOutlined),
       type: '',
-      visible: true
+      visible: true,
+      useLayout: true
     },
     component: () => import('@/views/home/index.vue'),
   },
@@ -49,7 +50,7 @@ router.beforeEach((to, from, next) => {
 });
 
 router.afterEach((to) => {
-  const title = to.meta.title as string;
+  const title = to.meta.label as string;
   if (title) {
     window.document.title = title
   }

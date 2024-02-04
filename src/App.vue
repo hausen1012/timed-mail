@@ -6,14 +6,14 @@ import Layout from '@/components/layout/Layout.vue';
   <router-view v-slot="{ Component, route }">
     <transition mode="out-in">
       <keep-alive v-if="route.meta.keepAlive">
-        <Layout v-if="route.meta.visible">
+        <Layout v-if="route.meta.visible || route.meta.useLayout">
           <component :is="Component" />
         </Layout>
         <component v-else :is="Component" />
       </keep-alive>
 
       <template v-else>
-        <Layout v-if="route.meta.hidden">
+        <Layout v-if="route.meta.visible || route.meta.useLayout">
           <component :is="Component" />
         </Layout>
         <component v-else :is="Component" />
