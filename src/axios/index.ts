@@ -27,7 +27,10 @@ service.interceptors.request.use(
   (config) => {
     if (userStore.token) {
       config.headers.token = userStore.token;
-    } 
+    }
+
+    config.headers.xmReqRaw = 1;
+    config.headers.xmRespRaw = 1;
 
     return config;
   },
