@@ -10,9 +10,20 @@ export const routes:RouteRecordRaw[] = [
       keepAlive: true,
       label: '首页',
       icon: () => h(AppstoreOutlined),
-      type: ''
+      type: '',
+      visible: true
     },
     component: () => import('@/views/home/index.vue'),
+  },
+  {
+    path: '/login',
+    name: 'login',
+    meta: {
+      keepAlive: false,
+      label: '登录',
+      visible: false
+    },
+    component: () => import('@/views/login/index.vue'),
   },
   {
     path: '/other',
@@ -21,7 +32,8 @@ export const routes:RouteRecordRaw[] = [
       keepAlive: true,
       label: '其它',
       icon: () => h(CrownOutlined),
-      type: ''
+      type: '',
+      visible: true
     },
     component: () => import('@/views/other/index.vue'),
   },

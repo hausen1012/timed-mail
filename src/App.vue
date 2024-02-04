@@ -3,16 +3,23 @@ import Layout from '@/components/layout/Layout.vue';
 </script>
 
 <template>
-  <Layout>
-    <router-view v-slot="{ Component, route }">
-      <transition mode="out-in">
-        <keep-alive v-if="route.meta.keepAlive">
+  <router-view v-slot="{ Component, route }">
+    <transition mode="out-in">
+      <keep-alive v-if="route.meta.keepAlive">
+        <Layout v-if="route.meta.visible">
           <component :is="Component" />
-        </keep-alive>
+        </Layout>
         <component v-else :is="Component" />
-      </transition>
-    </router-view>
-  </Layout>
+      </keep-alive>
+
+      <template v-else>
+        <Layout v-if="route.meta.hidden">
+          <component :is="Component" />
+        </Layout>
+        <component v-else :is="Component" />
+      </template>
+    </transition>
+  </router-view>
 </template>
 
 <style scoped>
